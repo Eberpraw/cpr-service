@@ -1,28 +1,38 @@
 package com.cprservice.cprservice.controller;
 
-import com.cprservice.Patient;
-import com.cprservice.cprservice.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import com.cprservice.cprservice.service.PatientService;
+import com.cprservice.cprservice.service.AuditLogService;
+import com.cprservice.cprservice.model.Patient;
+import com.cprservice.cprservice.model.AuditLog;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
-@RequestMapping("/patient")
 public class PatientController {
 
-    private final PatientService patientService;
+    @Autowired
+    private PatientService patientService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
-        this.patientService = patientService;
+    private AuditLogService auditLogService;
+
+    @GetMapping("/getPatient")
+    public Patient getPatientById(@RequestParam String patientID) {
+        // Log the API call
+        auditLogService.logApiCall("/getPatient", "patientID=" + patientID, LocalDateTime.now());
+
+        // Retrieve and return the patient
+        return patientService.findPatientById(patientID);
     }
 
-    @GetMapping
-    public Patient getPatient(@RequestParam String patientID, @RequestParam String doctorID) {
-        // Hent patienten baseret på patientID 
-        Patient patient = patientService.findPatientById(patientID);  // Find patienten
-        
-        return patient;
+    @GetMapping("/auditlog")
+    public List<AuditLog> getAuditLog() {
+        // Retrieve and return all audit logs
+        return auditLogService.getAllLogs();
     }
-
-    // Andre endpoints kan implementeres her
 }

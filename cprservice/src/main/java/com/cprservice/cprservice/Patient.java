@@ -1,14 +1,12 @@
-package com.cprservice;
+package com.cprservice.cprservice;
 
-import com.cprservice.cprservice.Address;
-import com.cprservice.cprservice.Identifier;
-import com.cprservice.cprservice.Name; // Correct import
+import java.util.List;
 
 public class Patient {
     private String resourceType;
     private Identifier identifier;
-    private Boolean active;
-    private Name name; // Use the correct Name class
+    private boolean active;
+    private Name name;
     private String gender;
     private String birthDate;
     private boolean deceasedBoolean;
@@ -27,10 +25,10 @@ public class Patient {
     public void setIdentifier(Identifier identifier) {
         this.identifier = identifier;
     }
-    public Boolean getActive() {
+    public boolean isActive() {
         return active;
     }
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
     public Name getName() {
