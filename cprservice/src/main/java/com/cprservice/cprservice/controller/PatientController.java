@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.cprservice.cprservice.service.PatientService;
-import com.cprservice.cprservice.service.AuditLogService;
-import com.cprservice.cprservice.model.Patient;
-import com.cprservice.cprservice.model.AuditLog;
+import com.cprservice.cprservice.PatientService;
+import com.cprservice.cprservice.AuditLogService;
+import com.cprservice.cprservice.Patient;
+import com.cprservice.cprservice.AuditLog;
 
 import java.time.LocalDateTime;
 import java.util.List;

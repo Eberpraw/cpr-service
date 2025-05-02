@@ -25,34 +25,34 @@ public class PatientService {
 
                     // Create and set Identifier object
                     Identifier identifier = new Identifier();
-                    identifier.setId(values[0]); // Assuming id is in the first column
-                    identifier.setSystem(values[1]); // Assuming system is in the second column
+                    identifier.setId(values[0]); 
+                    identifier.setSystem(values[1]); 
                     patient.setIdentifier(identifier);
 
                     // Set active status
-                    patient.setActive(Boolean.parseBoolean(values[2])); // Assuming active is in the third column
+                    patient.setActive(Boolean.parseBoolean(values[2])); 
 
                     // Create and set Name object
                     Name name = new Name();
-                    name.setFamily(values[3]); // Assuming family name is in the fourth column
-                    name.setGiven(Arrays.asList(values[4].split("\\|"))); // Assuming given names are pipe-separated
+                    name.setFamily(values[3]); 
+                    name.setGiven(Arrays.asList(values[4].split("\\|"))); 
                     patient.setName(name);
 
                     // Set gender
-                    patient.setGender(values[5]); // Assuming gender is in the sixth column
+                    patient.setGender(values[5]);
 
                     // Set birthDate
-                    patient.setBirthDate(values[6]); // Assuming birthDate is in the seventh column
+                    patient.setBirthDate(values[6]); 
 
                     // Set deceasedBoolean
-                    patient.setDeceasedBoolean(Boolean.parseBoolean(values[7])); // Assuming deceasedBoolean is in the eighth column
+                    patient.setDeceasedBoolean(Boolean.parseBoolean(values[7])); 
 
                     // Create and set Address object
                     Address address = new Address();
-                    address.setLine(values[8]); // Assuming address line is in the ninth column
-                    address.setCity(values[9]); // Assuming city is in the tenth column
-                    address.setPostalCode(values[10]); // Assuming postalCode is in the eleventh column
-                    address.setCountry(values[11]); // Assuming country is in the twelfth column
+                    address.setLine(values[8]); 
+                    address.setCity(values[9]); 
+                    address.setPostalCode(values[10]); 
+                    address.setCountry(values[11]);
                     patient.setAddress(address);
 
                     return patient;

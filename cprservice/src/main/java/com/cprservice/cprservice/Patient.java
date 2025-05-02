@@ -1,7 +1,5 @@
 package com.cprservice.cprservice;
 
-import java.util.List;
-
 public class Patient {
     private String resourceType;
     private Identifier identifier;
